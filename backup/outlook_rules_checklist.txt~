@@ -1,0 +1,17 @@
+Email ids from which alerts are recieved.
+EMDC01HP3PAR8360@bp.com
+EMDC02HP3PAR8359@bp.com
+root@bp1xeuap168.bp.com
+root@bp1xeuap818.bp.com
+yung-how.loh@bp.com
+amdc01hp3par5187@bp.com
+amdc02hp3par5043@bp.com
+RealtimeAlertProcess-SP08765@bp1xeuex059.bp1.ad.bp.como
+EMDC01EMCCEN0865@hp.com
+root@bp1xeuap1658.bp.com
+ERM_Server@domain.invalid
+
+DO NOT create a seperate folder for OM TL Mails. Just create a pop up.
+Create pop ups for the the following:
+OM/TL Mails
+conn-stats@bp1xgbap015.bp.com (connectivity status mails)

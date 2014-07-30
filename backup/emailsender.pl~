@@ -1,0 +1,17 @@
+#!/usr/bin/perl
+use warnings;
+use strict;
+use Email::Sender::Simple qw(sendmail);
+use Email::Simple;
+use Email::Simple::Creator;
+
+my $email = Email::Simple->create(
+	header => [
+		To	=> '"Pritesh Ugrankar" <pritesh.ugrankar@gmail.com>',
+		From	=> '"PMU RWX" <pmu.rwx@gmail.com>',
+		Subject	=> "Test mail from Perl",
+	],
+	body => "This is the body of the message";
+);
+
+sendmail($email);

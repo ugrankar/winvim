@@ -1,0 +1,18 @@
+Big version with GUI.  Features included (+) or not (-):
++arabic             +cscope             +float              -lua                +printer            +syntax             +viminfo
++autocmd            +cursorbind         +folding            +menu               -profile            +tag_binary         +vreplace
++balloon_eval       +cursorshape        -footer             +mksession          +python/dyn         +tag_old_static     +wildignore
++browse             +dialog_con_gui     +gettext/dyn        +modify_fname       +python3/dyn        -tag_any_white      +wildmenu
+++builtin_terms     +diff               -hangul_input       +mouse              +quickfix           +tcl/dyn            +windows
++byte_offset        +digraphs           +iconv/dyn          +mouseshape         +reltime            -tgetent            +writebackup
++cindent            -dnd                +insert_expand      +multi_byte_ime/dyn +rightleft          -termresponse       -xfontset
++clientserver       -ebcdic             +jumplist           +multi_lang         +ruby/dyn           +textobjects        -xim
++clipboard          +emacs_tags         +keymap             -mzscheme           +scrollbind         +title              -xterm_save
++cmdline_compl      +eval               +langmap            +netbeans_intg      +signs              +toolbar            +xpm_w32
++cmdline_hist       +ex_extra           +libcall            +ole                +smartindent        +user_commands
++cmdline_info       +extra_search       +linebreak          +path_extra         -sniff              +vertsplit
++comments           +farsi              +lispindent         +perl/dyn           +startuptime        +virtualedit
++conceal            +file_in_path       +listcmds           +persistent_undo    +statusline         +visual
++cryptv             +find_in_path       +localmap           -postscript         -sun_workshop       +visualextra
+   system vimrc file: "$VIM\vimrc"
+

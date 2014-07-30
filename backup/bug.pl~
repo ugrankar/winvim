@@ -1,0 +1,6 @@
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+print "This will generate an error and'
+$x

@@ -1,0 +1,37 @@
+Command                                       Description                                                             
+
+alicreate "Name", "domain,port no"            Used to create alias
+
+alicreate "Name","portname1; portname2″       To create more than one ports under one alias
+
+alidelete "Name"                              To delete alias
+
+aliadd "Name", "domain,port no"               To add additional ports to an alias
+
+aliremove "Name", "domain,port no"            To remove a port from the alias
+
+alishow "AliName"                             To show the alias configuration on the switch
+
+zonecreate "Zone Name", "alias1; alias2″      To create zones based on alias
+
+zonedelete "ZoneName"                         To delete a zone
+
+zoneadd "ZoneName", "alias name"              To add additional alias into the zone
+
+zoneremove "ZoneName", "alias name"           To remove an alias from the zone
+
+zoneshow "zoneName"                           To show the zone configuration information
+
+cfgcreate "Configname", "Zone1; Zone2″        To create configurations by adding in zones
+
+cfgdelete "ConfigName"                        To delete a configuration
+
+cfgadd "ConfigName", "Zone3″                  To add additional zones in the configuration
+
+cfgremove "ConfigName", "Zone3″               To remove a zone from the configuration
+
+cfgshow "ConfigName"                          To show the details of that configuration
+
+cfgenable "ConfigName"                        To enable a configuration on the switch
+
+cfgsave                                       To have the effective configuration to be written into the flash memory

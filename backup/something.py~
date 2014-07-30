@@ -1,0 +1,8 @@
+#!/usr/bin/python
+
+print "This is right"
+my_var = 23
+
+my_list = [1,2,3]
+
+

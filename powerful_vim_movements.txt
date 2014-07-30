@@ -1,0 +1,72 @@
+Powerful Vim Movements:
+
+You can combine the keystrokes in gVim/Vim to get your work done faster. Let's take
+a look at a couple of those.
+
+Moving around faster in vim:
+Say you have text such as below:
+
+================================================================================
+Days
+Monday Tuesday Wednesday Thursday Friday Saturday Sunday
+
+Numbers
+One Two Three Four Five Six Seven Eight Nine Ten Eleven Twelve
+================================================================================
+
+Lets say the cursor is currently at the "M" of "Monday" and you want to move over
+to the "F" in "Friday". There are many ways to go about this. 
+Note - All the movements below are executed in the "Normal" Mode.
+
+1) You keep hitting the "l" key till you reach the "F" of "Friday", not really
+efficient. Infact if you were to press and release the L key, it would take 32
+strokes to reach the "F".
+
+2) You move Word by Word. Assuming that the cursor is on the "M" of "Monday",hit 
+the "w" key. You hit the "w" four times to reach "F" in "Friday".
+
+3) Hit the "f" key and quickly follow it by a capital F, thats shift and "f".
+That's it, now your cursor is on the "F" of Friday !!
+
+Now say you want to move to the "W" of Wednesday? Type FW in the normal mode.
+the "F" in normal mode will move the cursor backwards, and the "W" tells it to
+move it to the "W". so cursor simply jumps back to the W.
+
+The f and F can be used to move anywhere. Try moving to the "a" in all the days.
+Assuming that the cursor is on the "S[a]turday" (the [a]is where the cursor is)
+type F and then quickly type a. Cursor will then jump back to "Frid[a]y". Hit the
+";" key and the cursor will jump to "Thursd[a]y" and so on and so forth.
+Typing "fa" will do the opposite.
+
+
+Lets try the same stuff on the "Numbers" Now.
+Find the easiest way to move the cursor from the "T" of "Two" to the "T" of Ten.
+You can keep hitting the "W", or try the f movement. However, when you do the fT
+movement (In normal mode, type f quickly followed by a capital T), you end up on
+Three. Now, hit the ";" key. This key will repeat the last movement. So you are
+basically telling the cursor to move to the next "T" by hitting the ";". Try it.
+
+Powerful ways to change/delete/insert text:
+
+Consider the following line:
+
+Here is a line which-has-some-dashes-here. This line needs to be deleted.
+
+Lets say we have to delete the line "This line needs to be deleted." Hitting x key
+repeatedly is a big waste of time. Better way to do it is, bring the cursor to the
+fullstop between the two sentences, you can do this by doing a "f.", hit d$, 
+thats a "d" immediately followed by a "$" and thats it. 
+
+Now lets say you just wanted to delete a word in the line above. Bring the cursor
+over to that word and in Normal Mode, type "daw" which stands for Delete Around the
+Word. Want to see what more it can do? Just bring the cursor to any word that has
+the dashes around it and press "daW" (Thats a d followed by an a and followed by
+a capital W).
+So here is your line:
+Here is a line which-has-some-dashes-here. This line needs to be deleted.
+
+Then lets say you get the cursor to the a of the "-has-" and hit daW, you'll see that
+the "which-has-some-dashes-here." part is deleted and we are just left with:
+
+Here is a line This line needs to be deleted.
+

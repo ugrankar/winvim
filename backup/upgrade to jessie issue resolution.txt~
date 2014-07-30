@@ -1,0 +1,47 @@
+http://unix.stackexchange.com/questions/125036/cannot-login-on-gui
+
+ Thanks for your help, guys. I was able to log in with a new user, so I figured something in my home directory must be wrong. 
+ 
+ I then ran sudo chown -hR username:username /home/username/ and I'm now able to log in again. –  pfnuesel Apr 16 at 11:30 
+
+
+ The LD_PRELOAD settings are deprecated so you might as well remove them (I've had problems in chroots and after uninstalling infinality).
+ # rm /etc/profile.d/freetype-infinality.sh
+
+Login to Debain through console.
+Run the following command
+apt-get dist-upgrade
+Install following modules:
+ laptop-mode-utils
+ firmware-linux-nonfree
+
+
+
+#################################################################################
+
+deb http://debian.mirror.net.in/debian testing main contrib non-free
+deb-src http://debian.mirror.net.in/debian testing main contrib non-free
+
+deb http://ftp.debian.org/debian/ jessie-updates main contrib non-free
+deb-src http://ftp.debian.org/debian/ jessie-updates main contrib non-free
+
+deb http://security.debian.org/ jessie/updates main contrib non-free
+deb-src http://security.debian.org/ jessie/updates main contrib non-free
+
+#Third Parties Repos
+#Debian Multimedia
+deb http://www.las.ic.unicamp.br/pub/debian-multimedia/ testing main
+#Debian Mozilla team
+deb http://your-mirror.debian.org/debian experimental main
+#deb-multimedia.org
+http://www.deb-multimedia.org squeeze main non-free
+#Debian Backports
+#http://backports.debian.org/debian-backports squeeze-backports main
+#################################################################################
+
+Some third packages needs special attention. After you run the command above, run these ones: 
+#Debian Mozilla team
+wget http://mozilla.debian.net/pkg-mozilla-archive-keyring_1.0_all.deb;
+dpkg --install pkg-mozilla-archive-keyring_1.0_all.deb
+	
+

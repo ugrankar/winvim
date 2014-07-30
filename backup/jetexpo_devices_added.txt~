@@ -1,0 +1,7 @@
+Name                          Prov VV_WWN           VSize_MB UsrCPG
+PPLUS_VMW_EMDC1_SDSC_PD_001.0 tpvv 50002AC0049C20A8  2097152 SI_Prem_Plus_tier1
+PPLUS_VMW_EMDC1_SDSC_PD_001.1 tpvv 50002AC0049D20A8  2097152 SI_Prem_Plus_tier1
+
+216 PPLUS_VMW_EMDC1_SDSC_PD_001.1  set:PRD.VMW.EMDC1_SDSC_PD_001 ----------------       --- host set
+217 PPLUS_VMW_EMDC1_SDSC_PD_001.0  set:PRD.VMW.EMDC1_SDSC_PD_001 ----------------       --- host set
+

@@ -1,0 +1,10 @@
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $reviewer = qq{Adrian "The Guru" Vandenberg};
+
+my $review = qq{$reviewer wrote: "This is a "TRULY AWESOME" Book};
+
+print "$review\n";
+

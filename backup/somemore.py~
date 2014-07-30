@@ -1,0 +1,7 @@
+#!/usr/bin/python
+
+
+print "This will print fine"
+print "This will howeever generate Error, not because there is a syntaxt Error"
+print "but because there are two spaces"
+print "

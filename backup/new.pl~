@@ -1,0 +1,4 @@
+#!/usr/bin/perl
+
+print "This time the cursor does not dance\n"
+print "This time the cursor does not dance\n";

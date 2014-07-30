@@ -1,0 +1,1298 @@
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+				Gatekeeper Creation Script
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+C:\Documents and Settings\ed856567\Desktop>symaccess -sid 2033 list | find/i "ec
+c"
+ssseccp01                         Initiator
+ECCHWP03_7E_0                     Port
+nc_ssseccp01                      Storage
+
+C:\Documents and Settings\ed856567\Desktop>symaccess -sid 4337 list | find/i "ec
+c"
+ecchwp03_mgmt_GKpath0             Initiator
+ecchwp03_mgmt_GKpath0             Port
+ecchwp03_mgmt_GKpath0             Storage
+
+C:\Documents and Settings\ed856567\Desktop>symaccess -sid 4947 list | find/i "ec
+c"
+ecchwp03_mgmt_GKpath0             Initiator
+ecchwp03_mgmt_GKpath0             Port
+ecchwp03_mgmt_GKpath0             Storage
+
+VMAX2033
+########
+
+symaccess -sid 2033 -wwn 5001438024268e56 rename -alias ecchwp13/sabre_011_1223
+symaccess -sid 2033 -wwn 5001438024268e54 rename -alias ecchwp13/sabre_010_1223
+
+PATH0:
+######
+Create initiator groups:
+symaccess -sid 2033 create -type initiator -name ecchwp13_mgmt_GKpath0 -consistent_lun
+symaccess -sid 2033 -type initiator -name ecchwp13_mgmt_GKpath0 add -wwn 5001438024268e56
+
+Create Port Groups:
+symaccess -sid 2033 create -type port -name ecchwp13_mgmt_GKpath0 -dirports 8E:1
+
+Create Storage Groups:
+symaccess -sid 2033 create -type storage -name ecchwp13_mgmt_GKpath0 devs 00A9,00AA,00AB,00AC
+
+Create masking view:
+symaccess -sid 2033 create view -name ecchwp13_mgmt_GKpath0 -ig ecchwp13_mgmt_GKpath0 -pg ecchwp13_mgmt_GKpath0 -sg ecchwp13_mgmt_GKpath0
+
+############################################################################################
+PATH1
+#####
+
+Create initiator groups:
+symaccess -sid 2033 create -type initiator -name ecchwp13_mgmt_GKpath1 -consistent_lun
+symaccess -sid 2033 -type initiator -name ecchwp13_mgmt_GKpath1 add -wwn 5001438024268e54
+
+Create Port Groups:
+symaccess -sid 2033 create -type port -name ecchwp13_mgmt_GKpath1 -dirports 9E:1
+
+Create Storage Groups:
+symaccess -sid 2033 create -type storage -name ecchwp13_mgmt_GKpath1 devs 00E9,00EA,00EB,00EC
+
+Create masking view:
+symaccess -sid 2033 create view -name ecchwp13_mgmt_GKpath1 -ig ecchwp13_mgmt_GKpath1 -pg ecchwp13_mgmt_GKpath1 -sg ecchwp13_mgmt_GKpath1
+
+############################################################################################
+
+VMAX4337
+########
+
+symaccess -sid 4337 -wwn 5001438024268e56 rename -alias ecchwp13/sabre_011_1223
+symaccess -sid 4337 -wwn 5001438024268e54 rename -alias ecchwp13/sabre_010_1223
+
+PATH0:
+######
+
+Create initiator groups:
+symaccess -sid 4337 create -type initiator -name ecchwp13_mgmt_GKpath0 -consistent_lun
+symaccess -sid 4337 -type initiator -name ecchwp13_mgmt_GKpath0 add -wwn 5001438024268e56
+
+Create Port Groups:
+symaccess -sid 4337 create -type port -name ecchwp13_mgmt_GKpath0 -dirports 8E:1
+
+Create Storage Groups:
+symaccess -sid 4337 create -type storage -name ecchwp13_mgmt_GKpath0 devs 00A9,00AA,00AB,00AC
+
+Create masking view:
+symaccess -sid 4337 create view -name ecchwp13_mgmt_GKpath0 -ig ecchwp13_mgmt_GKpath0 -pg ecchwp13_mgmt_GKpath0 -sg ecchwp13_mgmt_GKpath0
+
+############################################################################################
+PATH1
+#####
+
+Create initiator groups:
+symaccess -sid 4337 create -type initiator -name ecchwp13_mgmt_GKpath1 -consistent_lun
+symaccess -sid 4337 -type initiator -name ecchwp13_mgmt_GKpath1 add -wwn 5001438024268e54
+
+Create Port Groups:
+symaccess -sid 4337 create -type port -name ecchwp13_mgmt_GKpath1 -dirports 9E:1
+
+Create Storage Groups:
+symaccess -sid 4337 create -type storage -name ecchwp13_mgmt_GKpath1 devs 00E9,00EA,00EB,00EC
+
+Create masking view:
+symaccess -sid 4337 create view -name ecchwp13_mgmt_GKpath1 -ig ecchwp13_mgmt_GKpath1 -pg ecchwp13_mgmt_GKpath1 -sg ecchwp13_mgmt_GKpath1
+
+############################################################################################
+
+VMAX4947
+########
+
+symaccess -sid 4947 -wwn 5001438024268e56 rename -alias ecchwp13/sabre_011_1223
+symaccess -sid 4947 -wwn 5001438024268e54 rename -alias ecchwp13/sabre_010_1223
+
+PATH0
+#####
+Create initiator groups:
+symaccess -sid 4947 create -type initiator -name ecchwp13_mgmt_GKpath0 -consistent_lun
+symaccess -sid 4947 -type initiator -name ecchwp13_mgmt_GKpath0 add -wwn 5001438024268e56
+
+Create Port Groups:
+symaccess -sid 4947 create -type port -name ecchwp13_mgmt_GKpath0 -dirports 8E:1
+
+Create Storage Groups:
+symaccess -sid 4947 create -type storage -name ecchwp13_mgmt_GKpath0 devs 03A2,03A3,03A4,03A5
+
+Create masking view:
+symaccess -sid 4947 create view -name ecchwp13_mgmt_GKpath0 -ig ecchwp13_mgmt_GKpath0 -pg ecchwp13_mgmt_GKpath0 -sg ecchwp13_mgmt_GKpath0
+
+############################################################################################
+
+PATH1
+#####
+
+Create initiator groups:
+symaccess -sid 4947 create -type initiator -name ecchwp13_mgmt_GKpath1 -consistent_lun
+symaccess -sid 4947 -type initiator -name ecchwp13_mgmt_GKpath1 add -wwn 5001438024268e54
+
+Create Port Groups:
+symaccess -sid 4947 create -type port -name ecchwp13_mgmt_GKpath1 -dirports 9E:1
+
+Create Storage Groups:
+symaccess -sid 4947 create -type storage -name ecchwp13_mgmt_GKpath1 devs 03E2,03E3,03E4,03E5
+
+Create masking view:
+symaccess -sid 4947 create view -name ecchwp13_mgmt_GKpath1 -ig ecchwp13_mgmt_GKpath1 -pg ecchwp13_mgmt_GKpath1 -sg ecchwp13_mgmt_GKpath1
+
+############################################################################################
+
+ALTERNATE SCRIPT 2:
+###################
+
+symaccess -sid 2033 create view -name ecchwp13_mgmt_GKpath0 -wwn 5001438024268e56 -dirport 8E:1 devs 00A9,00AA,00AB,00AC 
+symaccess -sid 2033 create view -name ecchwp13_mgmt_GKpath1 -wwn 5001438024268e54 -dirport 9E:1 devs 00E9,00EA,00EB,00EC
+
+symaccess -sid 4337 create view -name ecchwp13_mgmt_GKpath0 -wwn 5001438024268e56 -dirport 8E:1 devs 00A9,00AA,00AB,00AC 
+symaccess -sid 4337 create view -name ecchwp13_mgmt_GKpath1 -wwn 5001438024268e54 -dirport 9E:1 devs 00E9,00EA,00EB,00EC
+
+symaccess -sid 4947 create view -name ecchwp13_mgmt_GKpath0 -wwn 5001438024268e56 -dirport 8E:1 devs 03A2,03A3,03A4,03A5 
+symaccess -sid 4947 create view -name ecchwp13_mgmt_GKpath1 -wwn 5001438024268e54 -dirport 9E:1 devs 03E2,03E3,03E4,03E5
+
+############################################################################################
+
+symgate -sid 2033 define dev 00A9
+symgate -sid 2033 define dev 00AA
+symgate -sid 2033 define dev 00AB
+symgate -sid 2033 define dev 00AC
+symgate -sid 2033 define dev 00E9
+symgate -sid 2033 define dev 00EA
+symgate -sid 2033 define dev 00EB
+symgate -sid 2033 define dev 00EC
+symgate -sid 4337 define dev 00A9
+symgate -sid 4337 define dev 00AA
+symgate -sid 4337 define dev 00AB
+symgate -sid 4337 define dev 00AC
+symgate -sid 4337 define dev 00E9
+symgate -sid 4337 define dev 00EA
+symgate -sid 4337 define dev 00EB
+symgate -sid 4337 define dev 00EC
+symgate -sid 4947 define dev 03A2
+symgate -sid 4947 define dev 03A3
+symgate -sid 4947 define dev 03A4
+symgate -sid 4947 define dev 03A5
+symgate -sid 4947 define dev 03E2
+symgate -sid 4947 define dev 03E3
+symgate -sid 4947 define dev 03E4
+symgate -sid 4947 define dev 03E5
+
+############################################################################################
+NAS
+CIFS Server CIFSCCDN02[GLOBAL] RC=7
+ Full computer name=cifsccdn02.global.ad.sabre.com realm=GLOBAL.AD.SABRE.COM
+ Comment='EMC-SNAS:T6.0.61.0'
+ if=scc6-dev-ip2 l=10.201.126.115 b=10.201.126.255 mac=0:60:16:41:76:5a
+  FQDN=cifsccdn02.global.ad.sabre.com (Update of "A" record failed during update: Primary name server not found)
+ Password change interval: 0 minutes
+ Last password change: Thu Sep 29 15:35:31 2011 GMT
+ Password versions: 3
+
+Command to check if the DNS server is pinging from NAS
+Diaz, Martin 12:41 PM
+[nasadmin@USTSSSNSBRE020 gz9nxw]$ server_dns server_4
+server_4 :
+DNS is running.
+global.ad.sabre.com
+  proto:udp server(s):172.29.44.169,172.30.245.6
+
+
+[nasadmin@USTSSSNSBRE020 gz9nxw]$ server_ping server_4 172.29.44.169
+server_4 : 172.29.44.169 is alive, time= 3 ms
+[nasadmin@USTSSSNSBRE020 gz9nxw]$ server_ping server_4 172.30.245.6
+server_4 : 172.30.245.6 is alive, time= 0 ms
+
+=====================================================================
+
+vxdmp commands:
+root@aipsnp08:/ # vxdmpadm listctlr all
+CTLR-NAME       ENCLR-TYPE      STATE      ENCLR-NAME
+=====================================================
+c5              EMC             ENABLED      EMC0
+c4              EMC             ENABLED      EMC0
+c1              Disk            ENABLED      Disk
+c5              EMC             ENABLED      EMC1
+c4              EMC             ENABLED      EMC1
+c5              EMC             ENABLED      EMC2
+c4              EMC             ENABLED      EMC2
+c5              EMC             ENABLED      EMC3
+c4              EMC             ENABLED      EMC3
+c5              EMC             ENABLED      EMC4
+c4              EMC             ENABLED      EMC4
+root@aipsnp08:/ # 
+root@aipsnp08:/ # 
+root@aipsnp08:/ # vxdmpadm listenclosure all
+ENCLR_NAME        ENCLR_TYPE     ENCLR_SNO      STATUS       ARRAY_TYPE
+============================================================================
+SENA0             SENA           508002000017c338     DISCONNECTED -
+HDS99600          HDS9960        7DFA                 DISCONNECTED -
+EMC0              EMC            700102               CONNECTED    A/A
+Disk              Disk           DISKS                CONNECTED    Disk
+EMC1              EMC            461439               CONNECTED    A/A
+EMC2              EMC            100749               CONNECTED    A/A
+EMC3              EMC            430968               CONNECTED    A/A
+EMC4              EMC            105011               CONNECTED    A/A
+root@aipsnp08:/ # 
+root@aipsnp08:/ # 
+root@aipsnp08:/ # 
+root@aipsnp08:/ # vxdmpadm getsubpaths ctlr=c1
+NAME         STATE[A]   PATH-TYPE[M] DMPNODENAME  ENCLR-TYPE   ENCLR-NAME   ATTRS
+================================================================================
+NONAME       DISABLED     -          c1t5d0s2     Disk         Disk           -
+c1t0d0s2     ENABLED(A)   -          c1t0d0s2     Disk         Disk           -
+c1t1d0s2     ENABLED(A)   -          c1t1d0s2     Disk         Disk           -
+c1t2d0s2     DISABLED     -          c1t2d0s2     Disk         Disk           -
+c1t2d0s2     ENABLED(A)   -          c1t2d0s2     Disk         Disk           -
+c1t3d0s2     ENABLED(A)   -          c1t3d0s2     Disk         Disk           -
+c1t4d0s2     ENABLED(A)   -          c1t4d0s2     Disk         Disk           -
+c1t5d0s2     ENABLED(A)   -          NONAME       Disk         Disk           -
+root@aipsnp08:/ # vxdmpadm getsubpaths ctlr=c4
+NAME         STATE[A]   PATH-TYPE[M] DMPNODENAME  ENCLR-TYPE   ENCLR-NAME   ATTRS
+================================================================================
+c4t20d99s2   ENABLED(A)   -          c4t20d99s2   EMC          EMC0           -
+c4t20d100s2  ENABLED(A)   -          c4t20d100s2  EMC          EMC0           -
+c4t20d101s2  ENABLED(A)   -          c4t20d101s2  EMC          EMC0           -
+c4t20d102s2  ENABLED(A)   -          c4t20d102s2  EMC          EMC0           -
+c4t20d103s2  ENABLED(A)   -          c4t20d103s2  EMC          EMC0           -
+c4t20d104s2  ENABLED(A)   -          c4t20d104s2  EMC          EMC0           -
+c4t20d141s2  ENABLED(A)   -          c4t20d141s2  EMC          EMC0           -
+c4t20d142s2  ENABLED(A)   -          c4t20d142s2  EMC          EMC0           -
+c4t20d143s2  ENABLED(A)   -          c4t20d143s2  EMC          EMC0           -
+c4t20d144s2  ENABLED(A)   -          c4t20d144s2  EMC          EMC0           -
+c4t20d145s2  ENABLED(A)   -          c4t20d145s2  EMC          EMC0           -
+c4t22d16s2   ENABLED(A)   -          c4t22d16s2   EMC          EMC1           -
+c4t22d17s2   ENABLED(A)   -          c4t22d17s2   EMC          EMC1           -
+c4t22d18s2   ENABLED(A)   -          c4t22d18s2   EMC          EMC1           -
+c4t22d19s2   ENABLED(A)   -          c4t22d19s2   EMC          EMC1           -
+c4t22d20s2   ENABLED(A)   -          c4t22d20s2   EMC          EMC1           -
+c4t22d21s2   ENABLED(A)   -          c4t22d21s2   EMC          EMC1           -
+c4t22d22s2   ENABLED(A)   -          c4t22d22s2   EMC          EMC1           -
+c4t22d23s2   ENABLED(A)   -          c4t22d23s2   EMC          EMC1           -
+c4t22d24s2   ENABLED(A)   -          c4t22d24s2   EMC          EMC1           -
+c4t22d25s2   ENABLED(A)   -          c4t22d25s2   EMC          EMC1           -
+c4t24d107s2  ENABLED(A)   -          c4t24d107s2  EMC          EMC0           -
+c4t24d108s2  ENABLED(A)   -          c4t24d108s2  EMC          EMC0           -
+c4t26d16s2   ENABLED(A)   -          c4t26d16s2   EMC          EMC2           -
+c4t26d17s2   ENABLED(A)   -          c4t26d17s2   EMC          EMC2           -
+c4t26d18s2   ENABLED(A)   -          c4t26d18s2   EMC          EMC2           -
+c4t26d19s2   ENABLED(A)   -          c4t26d19s2   EMC          EMC2           -
+c4t26d20s2   ENABLED(A)   -          c4t26d20s2   EMC          EMC2           -
+c4t26d21s2   ENABLED(A)   -          c4t26d21s2   EMC          EMC2           -
+c4t26d22s2   ENABLED(A)   -          c4t26d22s2   EMC          EMC2           -
+c4t26d23s2   ENABLED(A)   -          c4t26d23s2   EMC          EMC2           -
+c4t26d24s2   ENABLED(A)   -          c4t26d24s2   EMC          EMC2           -
+c4t26d25s2   ENABLED(A)   -          c4t26d25s2   EMC          EMC2           -
+c4t26d26s2   ENABLED(A)   -          c4t26d26s2   EMC          EMC2           -
+c4t26d27s2   ENABLED(A)   -          c4t26d27s2   EMC          EMC2           -
+c4t26d28s2   ENABLED(A)   -          c4t26d28s2   EMC          EMC2           -
+c4t26d29s2   ENABLED(A)   -          c4t26d29s2   EMC          EMC2           -
+c4t26d30s2   ENABLED(A)   -          c4t26d30s2   EMC          EMC2           -
+c4t26d166s2  ENABLED(A)   -          c4t26d166s2  EMC          EMC2           -
+c4t26d167s2  ENABLED(A)   -          c4t26d167s2  EMC          EMC2           -
+c4t26d168s2  ENABLED(A)   -          c4t26d168s2  EMC          EMC2           -
+c4t26d169s2  ENABLED(A)   -          c4t26d169s2  EMC          EMC2           -
+c4t26d170s2  ENABLED(A)   -          c4t26d170s2  EMC          EMC2           -
+c4t26d171s2  ENABLED(A)   -          c4t26d171s2  EMC          EMC2           -
+c4t26d172s2  ENABLED(A)   -          c4t26d172s2  EMC          EMC2           -
+c4t28d22s2   ENABLED(A)   -          c4t28d22s2   EMC          EMC3           -
+c4t28d23s2   ENABLED(A)   -          c4t28d23s2   EMC          EMC3           -
+c4t28d24s2   ENABLED(A)   -          c4t28d24s2   EMC          EMC3           -
+c4t28d25s2   ENABLED(A)   -          c4t28d25s2   EMC          EMC3           -
+c4t28d26s2   ENABLED(A)   -          c4t28d26s2   EMC          EMC3           -
+c4t28d27s2   ENABLED(A)   -          c4t28d27s2   EMC          EMC3           -
+c4t28d28s2   ENABLED(A)   -          c4t28d28s2   EMC          EMC3           -
+c4t28d29s2   ENABLED(A)   -          c4t28d29s2   EMC          EMC3           -
+c4t30d94s2   ENABLED(A)   -          c4t30d94s2   EMC          EMC2           -
+c4t30d95s2   ENABLED(A)   -          c4t30d95s2   EMC          EMC2           -
+c4t30d96s2   ENABLED(A)   -          c4t30d96s2   EMC          EMC2           -
+c4t30d97s2   ENABLED(A)   -          c4t30d97s2   EMC          EMC2           -
+c4t30d144s2  ENABLED(A)   -          c4t30d144s2  EMC          EMC2           -
+c4t30d145s2  ENABLED(A)   -          c4t30d145s2  EMC          EMC2           -
+c4t30d146s2  ENABLED(A)   -          c4t30d146s2  EMC          EMC2           -
+c4t30d147s2  ENABLED(A)   -          c4t30d147s2  EMC          EMC2           -
+c4t32d19s2   ENABLED(A)   -          c4t32d19s2   EMC          EMC4           -
+c4t32d20s2   ENABLED(A)   -          c4t32d20s2   EMC          EMC4           -
+c4t32d21s2   ENABLED(A)   -          c4t32d21s2   EMC          EMC4           -
+c4t32d39s2   ENABLED(A)   -          c4t32d39s2   EMC          EMC4           -
+c4t32d40s2   ENABLED(A)   -          c4t32d40s2   EMC          EMC4           -
+c4t32d41s2   ENABLED(A)   -          c4t32d41s2   EMC          EMC4           -
+c4t32d42s2   ENABLED(A)   -          c4t32d42s2   EMC          EMC4           -
+c4t32d43s2   ENABLED(A)   -          c4t32d43s2   EMC          EMC4           -
+c4t32d44s2   ENABLED(A)   -          c4t32d44s2   EMC          EMC4           -
+c4t32d108s2  ENABLED(A)   -          c4t32d108s2  EMC          EMC4           -
+c4t32d109s2  ENABLED(A)   -          c4t32d109s2  EMC          EMC4           -
+c4t32d110s2  ENABLED(A)   -          c4t32d110s2  EMC          EMC4           -
+c4t32d111s2  ENABLED(A)   -          c4t32d111s2  EMC          EMC4           -
+c4t32d112s2  ENABLED(A)   -          c4t32d112s2  EMC          EMC4           -
+c4t32d113s2  ENABLED(A)   -          c4t32d113s2  EMC          EMC4           -
+c4t32d114s2  ENABLED(A)   -          c4t32d114s2  EMC          EMC4           -
+c4t32d115s2  ENABLED(A)   -          c4t32d115s2  EMC          EMC4           -
+c4t32d116s2  ENABLED(A)   -          c4t32d116s2  EMC          EMC4           -
+c4t32d117s2  ENABLED(A)   -          c4t32d117s2  EMC          EMC4           -
+c4t32d118s2  ENABLED(A)   -          c4t32d118s2  EMC          EMC4           -
+c4t32d119s2  ENABLED(A)   -          c4t32d119s2  EMC          EMC4           -
+root@aipsnp08:/ # vxdmpadm getsubpaths ctlr=c5
+NAME         STATE[A]   PATH-TYPE[M] DMPNODENAME  ENCLR-TYPE   ENCLR-NAME   ATTRS
+================================================================================
+c5t21d99s2   ENABLED(A)   -          c4t20d99s2   EMC          EMC0           -
+c5t21d100s2  ENABLED(A)   -          c4t20d100s2  EMC          EMC0           -
+c5t21d101s2  ENABLED(A)   -          c4t20d101s2  EMC          EMC0           -
+c5t21d102s2  ENABLED(A)   -          c4t20d102s2  EMC          EMC0           -
+c5t21d103s2  ENABLED(A)   -          c4t20d103s2  EMC          EMC0           -
+c5t21d104s2  ENABLED(A)   -          c4t20d104s2  EMC          EMC0           -
+c5t21d141s2  ENABLED(A)   -          c4t20d141s2  EMC          EMC0           -
+c5t21d142s2  ENABLED(A)   -          c4t20d142s2  EMC          EMC0           -
+c5t21d143s2  ENABLED(A)   -          c4t20d143s2  EMC          EMC0           -
+c5t21d144s2  ENABLED(A)   -          c4t20d144s2  EMC          EMC0           -
+c5t21d145s2  ENABLED(A)   -          c4t20d145s2  EMC          EMC0           -
+c5t23d16s2   ENABLED(A)   -          c4t22d16s2   EMC          EMC1           -
+c5t23d17s2   ENABLED(A)   -          c4t22d17s2   EMC          EMC1           -
+c5t23d18s2   ENABLED(A)   -          c4t22d18s2   EMC          EMC1           -
+c5t23d19s2   ENABLED(A)   -          c4t22d19s2   EMC          EMC1           -
+c5t23d20s2   ENABLED(A)   -          c4t22d20s2   EMC          EMC1           -
+c5t23d21s2   ENABLED(A)   -          c4t22d21s2   EMC          EMC1           -
+c5t23d22s2   ENABLED(A)   -          c4t22d22s2   EMC          EMC1           -
+c5t23d23s2   ENABLED(A)   -          c4t22d23s2   EMC          EMC1           -
+c5t23d24s2   ENABLED(A)   -          c4t22d24s2   EMC          EMC1           -
+c5t23d25s2   ENABLED(A)   -          c4t22d25s2   EMC          EMC1           -
+c5t25d107s2  ENABLED(A)   -          c4t24d107s2  EMC          EMC0           -
+c5t25d108s2  ENABLED(A)   -          c4t24d108s2  EMC          EMC0           -
+c5t27d16s2   ENABLED(A)   -          c4t26d16s2   EMC          EMC2           -
+c5t27d17s2   ENABLED(A)   -          c4t26d17s2   EMC          EMC2           -
+c5t27d18s2   ENABLED(A)   -          c4t26d18s2   EMC          EMC2           -
+c5t27d19s2   ENABLED(A)   -          c4t26d19s2   EMC          EMC2           -
+c5t27d20s2   ENABLED(A)   -          c4t26d20s2   EMC          EMC2           -
+c5t27d21s2   ENABLED(A)   -          c4t26d21s2   EMC          EMC2           -
+c5t27d22s2   ENABLED(A)   -          c4t26d22s2   EMC          EMC2           -
+c5t27d23s2   ENABLED(A)   -          c4t26d23s2   EMC          EMC2           -
+c5t27d24s2   ENABLED(A)   -          c4t26d24s2   EMC          EMC2           -
+c5t27d25s2   ENABLED(A)   -          c4t26d25s2   EMC          EMC2           -
+c5t27d26s2   ENABLED(A)   -          c4t26d26s2   EMC          EMC2           -
+c5t27d27s2   ENABLED(A)   -          c4t26d27s2   EMC          EMC2           -
+c5t27d28s2   ENABLED(A)   -          c4t26d28s2   EMC          EMC2           -
+c5t27d29s2   ENABLED(A)   -          c4t26d29s2   EMC          EMC2           -
+c5t27d30s2   ENABLED(A)   -          c4t26d30s2   EMC          EMC2           -
+c5t27d166s2  ENABLED(A)   -          c4t26d166s2  EMC          EMC2           -
+c5t27d167s2  ENABLED(A)   -          c4t26d167s2  EMC          EMC2           -
+c5t27d168s2  ENABLED(A)   -          c4t26d168s2  EMC          EMC2           -
+c5t27d169s2  ENABLED(A)   -          c4t26d169s2  EMC          EMC2           -
+c5t27d170s2  ENABLED(A)   -          c4t26d170s2  EMC          EMC2           -
+c5t27d171s2  ENABLED(A)   -          c4t26d171s2  EMC          EMC2           -
+c5t27d172s2  ENABLED(A)   -          c4t26d172s2  EMC          EMC2           -
+c5t29d22s2   ENABLED(A)   -          c4t28d22s2   EMC          EMC3           -
+c5t29d23s2   ENABLED(A)   -          c4t28d23s2   EMC          EMC3           -
+c5t29d24s2   ENABLED(A)   -          c4t28d24s2   EMC          EMC3           -
+c5t29d25s2   ENABLED(A)   -          c4t28d25s2   EMC          EMC3           -
+c5t29d26s2   ENABLED(A)   -          c4t28d26s2   EMC          EMC3           -
+c5t29d27s2   ENABLED(A)   -          c4t28d27s2   EMC          EMC3           -
+c5t29d28s2   ENABLED(A)   -          c4t28d28s2   EMC          EMC3           -
+c5t29d29s2   ENABLED(A)   -          c4t28d29s2   EMC          EMC3           -
+c5t31d94s2   ENABLED(A)   -          c4t30d94s2   EMC          EMC2           -
+c5t31d95s2   ENABLED(A)   -          c4t30d95s2   EMC          EMC2           -
+c5t31d96s2   ENABLED(A)   -          c4t30d96s2   EMC          EMC2           -
+c5t31d97s2   ENABLED(A)   -          c4t30d97s2   EMC          EMC2           -
+c5t31d144s2  ENABLED(A)   -          c4t30d144s2  EMC          EMC2           -
+c5t31d145s2  ENABLED(A)   -          c4t30d145s2  EMC          EMC2           -
+c5t31d146s2  ENABLED(A)   -          c4t30d146s2  EMC          EMC2           -
+c5t31d147s2  ENABLED(A)   -          c4t30d147s2  EMC          EMC2           -
+c5t33d19s2   ENABLED(A)   -          c4t32d19s2   EMC          EMC4           -
+c5t33d20s2   ENABLED(A)   -          c4t32d20s2   EMC          EMC4           -
+c5t33d21s2   ENABLED(A)   -          c4t32d21s2   EMC          EMC4           -
+c5t33d39s2   ENABLED(A)   -          c4t32d39s2   EMC          EMC4           -
+c5t33d40s2   ENABLED(A)   -          c4t32d40s2   EMC          EMC4           -
+c5t33d41s2   ENABLED(A)   -          c4t32d41s2   EMC          EMC4           -
+c5t33d42s2   ENABLED(A)   -          c4t32d42s2   EMC          EMC4           -
+c5t33d43s2   ENABLED(A)   -          c4t32d43s2   EMC          EMC4           -
+c5t33d44s2   ENABLED(A)   -          c4t32d44s2   EMC          EMC4           -
+c5t33d108s2  ENABLED(A)   -          c4t32d108s2  EMC          EMC4           -
+c5t33d109s2  ENABLED(A)   -          c4t32d109s2  EMC          EMC4           -
+c5t33d110s2  ENABLED(A)   -          c4t32d110s2  EMC          EMC4           -
+c5t33d111s2  ENABLED(A)   -          c4t32d111s2  EMC          EMC4           -
+c5t33d112s2  ENABLED(A)   -          c4t32d112s2  EMC          EMC4           -
+c5t33d113s2  ENABLED(A)   -          c4t32d113s2  EMC          EMC4           -
+c5t33d114s2  ENABLED(A)   -          c4t32d114s2  EMC          EMC4           -
+c5t33d115s2  ENABLED(A)   -          c4t32d115s2  EMC          EMC4           -
+c5t33d116s2  ENABLED(A)   -          c4t32d116s2  EMC          EMC4           -
+c5t33d117s2  ENABLED(A)   -          c4t32d117s2  EMC          EMC4           -
+c5t33d118s2  ENABLED(A)   -          c4t32d118s2  EMC          EMC4           -
+c5t33d119s2  ENABLED(A)   -          c4t32d119s2  EMC          EMC4           -
+
+----------------------
+root@aipsnp09:/ # vxdmpadm enable ctlr=c5
+VxVM vxdmpadm ERROR V-5-1-2290 Attempt to enable a controller that is not available.
+Check hardware to analyze the problem.
+
+
+
+
+Cisco CFM Web Client IP: 10.200.53.228
+
+Clear counters on the cisco switch ports:
+config terminal 
+
+interface fc x/x 
+
+shutdown 
+
+do clear counters interface fc x/x 
+
+no shutdown 
+
+
+*********************************
+Location of folder for switch backup script:
+
+ECCVWP01:
+C:\Documents and Settings\sbrstoragetools\Desktop\New_Scripts
+*********************************
+EMCGrabs method
+This is an E-Lab Advisor report, which is an analysis report on an emcgrab output, so there should be an emcgrab for this host somewhere. Please provide the entire EMC Grab.
+
+If you no longer have it, below are the steps.
+You can download the latest EMCgrab utility from: ftp://ftp.emc.com/pub/emcgrab/Unix/
+
+INSTRUCTIONS FOR RUNNING EMCGRAB 
+a) Untar the attached file on relevant server (tar -xvf <filename>).
+b) Cd to emcgrab directory.
+c) Run emcgrab.sh 
+d) Answer questions posed by script. 
+e) When script has completed cd to outputs directory. 
+f) Upload to EMC SR 50161508 /send the file located in outputs directory.
+
+
+========================================
+
+Command to establish the SRDF Groups:
+
+C:\Documents and Settings\ed856546>symrdf addgrp -label 1484-4947 -rdfg 9 -sid 000190101484 -dir 4d,13d -remote_rdfg 9 -
+remote_sid 000192604947 -remote_dir 8h,9h
+
+Execute a Dynamic RDF Addgrp operation for group
+'1484-4947' on Symm: 000190101484 (y/[n]) ? y
+
+ Successfully Added Dynamic RDF Group '1484-4947' for Symm: 000190101484
+
+C:\Documents and Settings\ed856546>
+
+
+
+
+Command to check the LUN ID
+C:\Documents and Settings\ed857216\Desktop>symaccess -sid 3917 show view emghlp347 | findstr "0FCF 0FD0 0FD1 0FD2 0FD3 0FD4 0FD5 0FD6 0FD7 0FD8"
+0FCF    07F:0  Not Visible                2f          68625
+0FD0    07F:0  Not Visible                30          68625
+0FD1    07F:0  Not Visible                31          68625
+0FD2    07F:0  Not Visible                32          68625
+0FD3    07F:0  Not Visible                33          68625
+0FD4    07F:0  Not Visible                34          68625
+0FD5    07F:0  Not Visible                35          68625
+0FD6    07F:0  Not Visible                36          68625
+0FD7    07F:0  Not Visible                37          68625
+0FD8    07F:0  Not Visible                38          68625
+
+
+
+VNX commands
+naviseccli -user eccadmin -password emc54321 -scope 0 -address 172.29.44.222 getlun 0 -capacity
+
+naviseccli -user eccadmin -password emc54321 -scope 0 -address 172.29.44.222 storagegroup -list -gname emghsc118
+
+naviseccli -user eccadmin -password emc54321 -scope 0 -address 172.29.44.222 port -list -hba
+
+naviseccli -user eccadmin -password emc54321 -scope 0 -address 172.29.44.222 storagepool -list -id 0 -availablecap
+
+To check if host have been registered or not under field 'Defined = Yes or NO"
+
+Check trespassed luns:
+
+C:\Program Files\EMC\Navisphere CLI>naviseccli -h 10.200.200.13 -user eccadmin -password emc54321 -scope 0 getlun -trespass -status
+LOGICAL UNIT NUMBER 121
+Default Owner:              SP A
+Current owner:              SP B
+Device Map:                 Valid
+
+LOGICAL UNIT NUMBER 124
+Default Owner:              SP A
+Current owner:              SP B
+Device Map:                 Valid
+
+
+
+Set the trespassed LUNs to their default SP:
+
+C:\Program Files\EMC\Navisphere CLI>naviseccli -h 10.200.200.13 -user eccadmin -password emc54321 -scope 0 trespass mine
+
+
+C:\Program Files\EMC\Navisphere CLI>naviseccli -h 10.200.200.13 -user eccadmin -password emc54321 -scope 0 getlun -trespass -status
+
+Commands to check the backend clariion IP of the NAS Arrays:
+
+/nas/sbin/navicli -h SPA domain -list 
+
+/nas/sbin/navicli -h SPB domain -list 
+
+/nas/sbin/clariion_mgmt -info 
+
+
+
+Command to check license on DMX:
+
+symlmf -sid 3949 list -type emclm
+
+
+If you get following error in solaris 10 : /etc/cfg/fp/fabric_WWN_map. I/O error 
+
+ID[luxadm.create_fabric_device.2316] configuration failed for line (/devices/pci@1e,600000/SUNW,qlc@3/fp@0,0:fc::50060482cafdd763) in file: /etc/cfg/fp/fabric_WWN_map. I/O error
+Ask UE to bring server is single user mode. 
+
+12:17 PMGigena, NestorI bring the server down in single user mode...I could see that the old path still were into the file: /etc/cfg/fp/fabric_WWN_map
+and then...
+we proceeded to unconfigure them
+
+
+root@mrtsnc05:/> cfgadm -o force_update -c unconfigure c3::50060482cafdd76c 
+root@mrtsnc05:/> cfgadm -o force_update -c unconfigure c3::50060482cafdd763 
+
+and configure them again:
+root@mrtsnc05:/> cfgadm -c configure c3 
+root@mrtsnc05:/> cfgadm -c configure c4
+
+
+12:18 PMKhader, Mohideenso did you just modify that one file and restart?
+oh from the cmd line
+
+
+12:18 PMGigena, Nestorafter that:   
+powermt config 
+powermt check 
+powermt save
+init 6
+and that's all 
+
+
+The order in which the StorageScope services are suppose to be started in is as follows:
+
+OracleECCREP_HOMETNSListner
+OracleServiceEMCSTSDB
+
+EMC StorageScope Server
+EMC ControlCenter Web Server
+Rest of EMC ControlCenter services
+
+
+
+Command for Symm hardware checks:
+symevent -sid 1293 -start 08/15/2011 list
+
+
+VMAX:
+How to find faulted disk using DA TID INT
+
+EMC may inform you that disk at following location has failed:
+The drive location is DA08 D1:17 (DA08d Port-1 Drive 17).
+
+Run the following command:
+
+C:\Documents and Settings\ed856546>symdisk -sid 2038 list -da 08D -interface D
+
+Symmetrix ID                 : 000192602038
+Disks Selected               : 15
+
+                                                         Capacity(MB)
+Ident  Symb Int TID Vendor     Type       Hypr   Total       Free      Actual
+------ ---- --- --- ---------- ---------- ---- ---------- ---------- ----------
+DF-8D  08D    D   1 SEAGATE    HUC1415      66     139028      10048     139028
+DF-8D  08D    D   3 SEAGATE    HUC1415      66     139028      10048     139028
+DF-8D  08D    D   5 SEAGATE    HUC1415      66     139028       6478     139028
+DF-8D  08D    D   7 SEAGATE    HUC1415      68     139028       5284     139028
+DF-8D  08D    D   9 SEAGATE    HUC1415      58     139028      66686     139028
+DF-8D  08D    D   B SEAGATE    HUC1415      67     139028       6473     139028
+DF-8D  08D    D   D SEAGATE    EGC3015       0          0          0     279140
+DF-8D  08D    D   F SEAGATE    HUC1415      66     139028       6478     139028
+DF-8D  08D    D  11 SEAGATE    HUC1415      67     139028      12806     139028
+DF-8D  08D    D  13 SEAGATE    HUC1415      66     139028       6478     139028
+DF-8D  08D    D  15 SEAGATE    HUC1415      66     139028       6478     139028
+DF-8D  08D    D  17 SEAGATE    HUC1415       0          0          0     139028
+DF-8D  08D    D  19 SEAGATE    HUC1415      66     139028       6478     139028
+DF-8D  08D    D  1B SEAGATE    HUC1415      67     139028       5289     139028
+DF-8D  08D    D  1D SEAGATE    HUC1415      66     139028       6478     139028
+
+                                               ---------- ---------- ----------
+Totals                                            1807361     155500    2225529
+
+
+Note that disk 17 is showing ZERO Hypers. 
+
+Run the following command to confirm:
+C:\Documents and Settings\ed856546>symdisk -sid 2038 list -da 08D -interface D -tid 17
+
+Symmetrix ID                 : 000192602038
+Disks Selected               : 1
+
+                                                         Capacity(MB)
+Ident  Symb Int TID Vendor     Type       Hypr   Total       Free      Actual
+------ ---- --- --- ---------- ---------- ---- ---------- ---------- ----------
+DF-8D  08D    D  17 SEAGATE    HUC1415       0          0          0     139028
+
+                                               ---------- ---------- ----------
+Totals                                                  0          0     139028
+
+C:\Documents and Settings\ed856546>
+
+Note zero hypers shown here.
+Below, a healthy disk shows hypers associated:
+
+C:\Documents and Settings\ed856546>symdisk -sid 2038 list -da 08D -interface D -tid 1
+
+Symmetrix ID                 : 000192602038
+Disks Selected               : 1
+
+                                                         Capacity(MB)
+Ident  Symb Int TID Vendor     Type       Hypr   Total       Free      Actual
+------ ---- --- --- ---------- ---------- ---- ---------- ---------- ----------
+DF-8D  08D    D   1 SEAGATE    HUC1415      66     139028      10048     139028
+
+                                               ---------- ---------- ----------
+Totals                                             139028      10047     139028
+
+
+
+
+=================================================================================================
+Command to remove incorrect zoning.
+symaccess -sid xxxx -wwn xxxxxx -dirport xf:x remove -logins
+symaccess -sid 2033 -wwn 50014380072f42e6 -dirport 8G:1 remove -logins
+
+DMX:
+symmask -sid 1293 -wwn 210000e08b92c7a7 delete -dir 9B -p 0 -login
+
+============================================================================
+NAS Commands:
+Command to get a list of exports. This is required for any upgrades scheduled on the NAS BOX.
+server_export server_2 -list
+server_export server_4 -list
+server_export server_5 -list
+
+server_export ALL
+
+Check if the NAS FS that has issues is replicated or not.
+nas_cel -interconnect list :- To see the Replication Link setup between which DM.
+nas*
+nas_replicate -info -all | grep vtl-prd :- To see the Src-Des FS details
+
+Command to find out space on NAS:
+nas_pool -size -all
+
+Steps to decommission a File System.
+	We get a ISS from the UE with a SR number
+	We check whether the filesystem and the share are empty (without data)
+	We delete the export
+	We delete the share
+	We delete the filesystem 
+
+
+
+
+Command to check if Data mover (DM) is faulted/failed over:
+nas_server -list
+
+
+
+
+[nasadmin@USTSSSNSBRE016 ~]$
+Open any NAS box in GUI
+in celerra manager on the left plane.. u will find tools..
+if you click on tools on the right plane.. u will see celerra monitor...
+Just click on that... it will open another window...
+in that u will see filesystem.. just expand filesystem and right click on it.. then u will see IO object.. click on it
+on the right plane u will see a graph..
+i have taken the graph for monday then i used microsoft image writer to copy the screen instead of screen shot.... i need to do this for alll 160+ file systems
+
+=====================================================================
+Ramon.
+
+Adding nas quota through cl
+nas_quotas -edit -tree -fs svf-prd-nr-nfs01 -block 834666496:0 1
+
+To find the block value, check the output of nas_fs -size <fsname>.
+The output of that should be converted to KB and added.
+
+Command to check NAS Box check:
+
+nas_checkup
+
+In the output check the following:
+Check if the Primary is active or not.
+Check if IP and Subnet conf is pass.
+NTP should also be pass.
+COMMAND TO CHECK IF THE DATA MOVER IS ONLINE:
+
+nas_server -info -all
+
+THE OUTPUT WILL BE SOMETHING LIKE GIVEN BELOW:
+[nasadmin@USTSSSNSBRE013 ~]$ nas_server -info -all
+id        = 1
+name      = server_2
+acl       = 0
+type      = nas
+slot      = 2
+member_of =
+standby   = server_3, policy=auto
+status    :
+  defined = enabled
+   actual = online, active
+
+id        = 2
+name      = server_3
+acl       = 0
+type      = standby
+slot      = 3
+member_of =
+standbyfor= server_5,server_2,server_4
+status    :
+  defined = enabled
+   actual = online, ready
+
+id        = 3
+name      = server_4
+acl       = 0
+type      = nas
+slot      = 4
+member_of =
+standby   = server_3, policy=auto
+status    :
+  defined = enabled
+   actual = online, active
+
+id        = 4
+name      = server_5
+acl       = 0
+type      = nas
+slot      = 5
+member_of =
+standby   = server_3, policy=auto
+status    :
+  defined = enabled
+   actual = online, active
+
+
+[nasadmin@USTSSSNSBRE013 ~]$
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++
+NAS issue comes up stating server not able to see the mounts:
+
+Ask the following:
+Complete path to the FS. such as scc3-pn02-nas.sabre.com:/emg-prd-nr-nfs131/opt_mw_tomcat_airmax
+
+If not that, ask them for the server IPs. Tell them that without the scc3 stuff it will take a long time.
+
+First thing to do is try and ping to the server IPs.
+
+If the server is down, the following will be shown:
+[nasadmin@USTSSSNSBRE013 ~]$ server_ping server_4 10.201.10.133
+server_4 :
+Error 6: server_4 : No such device or address
+no answer from 10.201.10.133
+
+
+If the server is up, it will look like the following:
+
+[nasadmin@USTSSSNSBRE013 ~]$ server_ping server_4 10.201.10.133
+server_4 : 10.201.10.133 is alive, time= 0 ms
+
+
+
+scc-pnc\r-nas	/global/airops/mq emg-prd-nr-nfs17/airops_mq
+
+Check if the filesystem exists on the NAS:
+
+[nasadmin@Ustlsnssbre001 ~]$ server_export server_4 -list -all |grep emg-prd-nr-nfs17
+export "/emg-prd-nr-nfs17/airops_mq" rw=10.201.2.163:10.201.2.166:10.201.2.169 root=10.201.2.163:10.201.2.166:10.201.2.169
+
+Check the logs (If grepping with date, ensure two spaces are put btwn month and date like shown below - Octspacespace8")
+nas_logviewer /nas/log/sys_log|grep "Oct  8"
+
+NAS
+
+filesystem: 
+10.200.53.66
+10.209.49.251
+
+10.201.10.132
+10.201.10.133
+10.201.10.134
+server_export server_4 |grep fs name                 * To see the export (root & r/w  IPs)
+nas_fs list | grep fs name                                  * To check the f.s (filesystem)
+nas_replicate -list | grep svt-dev-rep-nfs04         *To check the Replication
+nas_quotas -report -tree -fs svt-prd-nr-nfs02     *To see the size of share
+nas_quotas -list -tree -fs cto-prd-nr-nfs19          * To see the share name
+nas_server list                                                    * To list the Data Movers 
+server_ifconfig server_2 a                                 *To see the IP address(DNS) of Data Mover
+fs_ckpt <fs name> -list                                    * To check checkpoint
+
+nas_fs -size aaa
+nas_fs -list | grep aaa
+server_export server_z -list -all | grep aaa
+nas_quotas -list -tree -fs aaa
+nas_quotas -report -tree -fs aaa
+
+Steps to check for IP addition.
+
+
+Get SR number from the quota list.
+
+[nasadmin@USTSMSNSBRE009 ~]$ nas_quotas -list -tree -fs cto-prd-nr-nfs01
++------------------------------------------------------------------------------+
+| Quota trees for filesystem cto-prd-nr-nfs01 mounted  on /cto-prd-nr-nfs01:
++------+-----------------------------------------------------------------------+
+|TreeId| Quota tree path (Comment)                                             |
++------+-----------------------------------------------------------------------+
+|    1 | /CDC_NAS2 (SR # 173978.067)                                           |
++------+-----------------------------------------------------------------------+
+
+http://teams8.sharepoint.hp.com/teams/sabre_storage/Storage%20Team%20Process%20and%20Procedures/Forms/AllItems.aspx?RootFolder=%2fteams%2fsabre%5fstorage%2fStorage%20Team%20Process%20and%20Procedures%2fNAS%20Troubleshooting%20and%20Procedures&FolderCTID=&View=%7b6B938100%2d6F02%2d41F4%2dAE46%2d18EB41D5F4AC%7d
+
+This includes documentation on collecting NAR files, migrating file systems between data movers, and the NAS troubleshooting template. 
+==========================================================
+
+Command to show Cisco Switch Serial Number:
+show sprom backplane 1
+show switch serial
+
+Command to reserve LUN on the symcli:
+C:\Documents and Settings\ed856546>symconfigure -sid 2038 reserve -cmd "reserve dev 28D1;" -owner "pritesh" -comment "CR 705694"
+
+Command to create LUNs:
+navicli -h 172.29.44.220 bind r5 339 -rg 160 -sp b -rc 1 -wc 1 -sq gb -cap 200 -v medium -r high
+
+Command to add SAME LUN to DIFFERENT SGS (CLUSTER):
+navicli -h 172.29.44.220 storagegroup -addhlu -gname sachlp100 -alu 340 -hlu 27
+navicli -h 172.29.44.220 storagegroup -addhlu -gname sachlp101 -alu 340 -hlu 27
+navicli -h 172.29.44.220 storagegroup -addhlu -gname sachlp102 -alu 340 -hlu 27
+
+Windows command to get the name and size.
+for %d in (339,340,341,342,343,344,345,346,347,348,349,350,351,352,353,354,355,356,357,358,359,360,361,362,363,364) do echo %d>>lucap.txt && navicli -h 172.29.44.220 getlun %d -capacity>>lucap.txt
+
+
+VMAX Scripts:
+
+Following example shows a CLUSTERED VMAX allocation. Some devices are to be shared while some not.
+****Note****
+For cluster allocations do not create cascaded init grps in Sabre. They want two seperate init grps accessing two diff storage gps. These storage groups MUST HAVE SAME DEVICEs. THIS IS CONFIRMED IN THE DAILY EVENING CALL SO DUELY FOLLOW THIS WITHOUT FAIL.
+
+***Create Initiator Groups***
+
+symaccess -sid 2038 create -name ig_sswhlp243 -type initiator -consistent_lun
+symaccess -sid 2038 -type initiator -name ig_sswhlp243 add -wwn 50014380056ba520
+symaccess -sid 2038 -type initiator -name ig_sswhlp243 add -wwn 50014380056ba522
+
+
+symaccess -sid 2038 create -name ig_sswhlp244 -type initiator -consistent_lun
+symaccess -sid 2038 -type initiator -name ig_sswhlp244 add -wwn 50014380056ba4e0
+symaccess -sid 2038 -type initiator -name ig_sswhlp244 add -wwn 50014380056ba4e2
+
+***Create Port Groups***
+
+symaccess -sid 2038 create -name pg_sswhlp243 -type port -dirport 7E:0,8E:0,9E:0,10E:0
+
+symaccess -sid 2038 create -name pg_sswhlp244 -type port -dirport 7E:0,8E:0,9E:0,10E:0
+
+***Create Storage Groups***
+Breakup of devices:
+
+sswhlp243 -- 3*33 GB LUNS NOT Shared - 1F5D,1F61,1F65
+sswhlp244 -- 3*33 GB LUNS NOT Shared - 1F69,1F6D,1F71
+
+sswhlp243/244 -- 3*9GB,5*33GB LUNS Shared - 
+5 * 33 GB SHARED LUNs - 1F75,1F79,1F7D,1F81,1F85
+3 * 9 GB SHARED LUNs - 1F89,1F8A,1F8B
+
+symaccess -sid 2038 create -name sg_sswhlp243 -type storage devs 1F5D,1F61,1F65,1F75,1F79,1F7D,1F81,1F85,1F89,1F8A,1F8B
+
+symaccess -sid 2038 create -name sg_sswhlp244 -type storage devs 1F69,1F6D,1F71,1F75,1F79,1F7D,1F81,1F85,1F89,1F8A,1F8B
+
+***Create Masking View***
+symaccess -sid 2038 create view -name sswhlp243 -ig ig_sswhlp243 -pg pg_sswhlp243 -sg sg_sswhlp243
+symaccess -sid 2038 create view -name sswhlp244 -ig ig_sswhlp244 -pg pg_sswhlp244 -sg sg_sswhlp244
+This is when the mapping and masking actually happens:
+
+
+
+Size to LUN Number conversion:
+
+If you need to create a lun of say, 200 GB, then do the following
+
+200*1024=204800 MB
+
+Divide this number by standard LUN Size like shown below:
+
+To calculate how much 8GB LUNs (lowest possible dev size in sabre) do the following
+
+204800/8632= 23.72 LUNs or 24 LUNs
+
+For 33 GB LUNs=
+
+204800/34526 = 5.9 or 6 LUNs
+
+Sabre TCC commands:
+navicli -h 172.29.44.221 port -list -initiatorcount
+
+
+for %d in (000187430968,000187461439,000187700102,000187720594,000187751432,000190100749,000190105011,000190105263,000192602038,000192603917,000192603949) do symoptmz -sid %d query
+
+
+for %d in (000187430749,000187751293,000190101484,000192602033,000192604337) do symoptmz -sid %d query
+
+If you get an alert stating a disk is down and some devices are write disabled, here's how you can check:
+
+First find out how many devices are write disabled:
+
+symdev -sid 0102 list -multiport |find /I "wd"
+
+Or, use following command to find Not Ready devices:
+
+symdev -sid 0102 list -multiport |find /I "NR"
+
+
+
+Now the list that is generated by the above commands, run that against symmaskdb command and see if any devices are masked or not.
+
+But before you do that, run the following command to see if the devices given out by the list are meta heads, because, only metaheads are masked, not the members. The symdev -sid <sid> show <devid> will cotain a line with "-->" sign next to the meta head. We can use that sign to get a list of meta heads as shown below.
+
+C:\Documents and Settings\ed856546>for %d in (01A7,01AB,01AF,01B3,01B7,01BB,01BF,01C3,01C7,01CB,01CF,01D3,01D7,01DB,01DF,01E3,01E7,01EB,01EF
+,01F3,01F7,03AB,0467,047F,0497,049B,049F,04A3,04C7,05D3,05D7,05DB,05DF,05E3,069F,06CF,0AF4,0AF8,0AFC,0B00,0B04,0C44,0C48,0C4C,0C50,0C54,0C58
+,0CE4,0CE8,0CEC,0CF0,0CF4,0CF8,0CFC,0D00,0D48,0ED0,0EDC,0EE0) do symdev -sid 0102 show %d | FIND "-->"
+
+C:\Documents and Settings\ed856546>symdev -sid 0102 show 01A7   | FIND "-->"
+    --> 01A7   8632        -       -  N/A                -      - N/A
+
+C:\Documents and Settings\ed856546>symdev -sid 0102 show 01AB   | FIND "-->"
+    --> 01AB   8632        -       -  N/A                -      - N/A
+	.....................................................................
+	.....................................................................
+	.....................................................................
+	
+	
+-----------------------------------------------------------------------------------
+
+
+Command to convert a device to BCV:
+
+convert dev 0CED to BCV+R-5;
+_______________________________________
+
+command to show serial no. in cisco switch:
+
+show sprom backplane 1
+___________________________________________
+
+inq -hba command on Solaris 10 (AMD 64 Bit)
+root@emghsc005:/> /opt/emcgrab/tools/bin/inq.solAMD64 -hba
+
+------------------------------------------------------------------------
+Dissolve metas:
+
+dissolve meta dev 1DB5;
+dissolve meta dev 1DB9;
+dissolve meta dev 1DBD;
+dissolve meta dev 1DC1;
+dissolve meta dev 1DC5;
+dissolve meta dev 1DC9;
+dissolve meta dev 1DCD;
+dissolve meta dev 1DD1;
+dissolve meta dev 1DD5;
+dissolve meta dev 1DD9;
+------------------------------------------------------------------------
+C:\Program Files\EMC\Navisphere CLI>
+form meta from dev 1DB5 config=striped,stripe_size=1920;
+add dev 1DB6 to meta 1DB5;
+add dev 1DB7 to meta 1DB5;
+add dev 1DB8 to meta 1DB5;
+add dev 1DB9 to meta 1DB5;
+add dev 1DBA to meta 1DB5;
+add dev 1DBB to meta 1DB5;
+add dev 1DBC to meta 1DB5;
+
+
+form meta from dev 1DBD config=striped,stripe_size=1920;
+add dev 1DBE to meta 1DBD;
+add dev 1DBF to meta 1DBD;
+add dev 1DC0 to meta 1DBD;
+add dev 1DC1 to meta 1DBD;
+add dev 1DC2 to meta 1DBD;
+add dev 1DC3 to meta 1DBD;
+add dev 1DC4 to meta 1DBD;
+
+
+form meta from dev 1DC5 config=striped,stripe_size=1920;
+add dev 1DC6 to meta 1DC5;
+add dev 1DC7 to meta 1DC5;
+add dev 1DC8 to meta 1DC5;
+add dev 1DC9 to meta 1DC5;
+add dev 1DCA to meta 1DC5;
+add dev 1DCB to meta 1DC5;
+add dev 1DCC to meta 1DC5;
+
+form meta from dev 1DCD config=striped,stripe_size=1920;
+add dev 1DCE to meta 1DCD;
+add dev 1DCF to meta 1DCD;
+add dev 1DD0 to meta 1DCD;
+add dev 1DD1 to meta 1DCD;
+add dev 1DD2 to meta 1DCD;
+add dev 1DD3 to meta 1DCD;
+add dev 1DD4 to meta 1DCD;
+
+
+form meta from dev 1DD5 config=striped,stripe_size=1920;
+add dev 1DD6 to meta 1DD5;
+add dev 1DD7 to meta 1DD5;
+add dev 1DD8 to meta 1DD5;
+add dev 1DD9 to meta 1DD5;
+add dev 1DDA to meta 1DD5;
+add dev 1DDB to meta 1DD5;
+add dev 1DDC to meta 1DD5;
+-------------------------------------------------------------------------------
+Setting HBA Flags:
+Check logins to ensure wwns are no longer logged in before making changes.
+
+Following examples are for setting flags on Windows hosts for updated storport drivers.
+VMAX: Set HBA Flags for the Initiator Groups:
+symaccess -sid 2038 -type initiator -name ig_emghlp021 set ig_flags on SC3,SPC2 -enable
+symaccess -sid 2038 -type initiator -name ig_emghlp022 set ig_flags on SC3,SPC2 -enable
+symaccess -sid 2038 -type initiator -name ig_emghlp023 set ig_flags on SC3,SPC2 -enable
+symaccess -sid 2038 -type initiator -name ig_emghlp024 set ig_flags on SC3,SPC2 -enable
+
+DMX: symmask -sid 749 set hba_flag on SC3,SPC2,C,OS2007 -enable -wwn 500110a000148aa8 -dir 7a -p 1
+
+------------------------------------------------------------------------------------
+
+Replacing HBA:
+
+VMAX:
+symaccess sid 814 replace wwn 20000000c920b484 -new_wwn 20000000c920b393
+
+-----------------------------------------------------------------------------------
+
+If you use mapping script to reserve devices, it will reserve the LUN IDs as well and give following error:
+C:\Documents and Settings\ed856546>symconfigure -sid 0749 -f map.txt preview
+
+Execute a symconfigure operation for symmetrix '000190100749' (y/[n]) ? y
+
+A Configuration Change operation is in progress. Please wait...
+
+    Establishing a configuration change session...............Established.
+    Processing symmetrix 000190100749
+       Device 0x08F9 is reserved by reservation id = 000001
+      Input address lun = 100 is reserved by reservation id = 000001 for use with device 8F9
+       Device 0x08FD is reserved by reservation id = 000001
+      Input address lun = 101 is reserved by reservation id = 000001 for use with device 8FD
+       Device 0x0901 is reserved by reservation id = 000001
+      Input address lun = 102 is reserved by reservation id = 000001 for use with device 901
+       Device 0x0905 is reserved by reservation id = 000001
+      Input address lun = 103 is reserved by reservation id = 000001 for use with device 905
+
+    Error occurred while Checking Device Reservations
+    A device or address in the request is reserved and this operation can not proceed
+
+    Terminating the configuration change session..............Done.
+
+The configuration change session has failed.
+-------------------------------------------------------------------------------------
+
+Setting SCSI3 Bit on the DEVICE LEVEL:
+
+set device 2975 attribute=SCSI3_persist_reserv;
+
+REMOVING SCSI3 Bit on the device LEVEL:
+set device 2975 attribute= NO SCSI3_persist_reserv;
+
+
+-------------------------------------------------------------------------------------
+Command to check the mirror and invalid track status for RDF devices:
+for %d in (0078,013C,0200,02C4,0388,1CA2,1D04,1D66,1DC8,1E2A,1E8C,1EEE,1F50,1FB2,2014,2076,20D8,213A,219C,21FE,2260,22C2,2324,2386,23E8,244A,24AC,045D,04BF,0521,0583,05E5,0647,06A9,070B,076D,07CF,0831,0893,08F5,0957,09B9,0A1B,0A7D,0ADF,0B41,0BA3,0C05,0C67,0CC9,0D2B,0D8D,0DEF,0E51,0EB3,0F15,0F77,0FD9,103B,109D,10FF,1161,11C3,1225,1287,12E9,134B,13AD,140F,1471,14D3,1535,1597,15F9,165B,16BD,171F,1781,17E3,1845,18A7,1909,196B,19CD,1A2F,1A91,1AF3,1B55,1BB7,1C19,250B,2578,25B2,2C29,2C8A,3E5C,3BD3) do symdev -sid 5375 show | findstr /I "mirror status inv. tracks"
+
+===================================================================
+Login credentials:
+
+fsehlp04.mgmt.sabre.com 
+(SSH Port 22).
+
+Username  storage
+Password  3mc@sabre 
+
+_________________________________________________________________
+
+Cisco (ecchwp04)
+admin
+5St0rage11
+
+NAS
+nasadmin
+nasadmin
+
+Fundamental & VNX
+eccadmin
+emc54321
+
+Perf Manager & ECC
+oobmgmt\edxxxxx
+
+Mcdata CDC from native JS
+Administrator
+password
+
+3Par  putty - native JS and GUI (ecchwp03)
+3paradm
+3$aBre29
+
+DD putty - native JS
+UID: edxxxxxx
+PWC: Welcome@1
+
+Reference to create UNIX request for VM access to DD - DFWL-8TNQ9D 
+
+Contact number for HP Mailbox related issues - 00017703435776
+
+Contact number to be put for sabre incident tickets - 100-1837475
+
+Reference ticket to get the ed id password reset: 100-02-10072601
+
+ADMS Support No to call for in case the jump servers are not accessible - 18557240189  
+ 
+ 
+
+
+ed856533
+parthi87
+
+dz77cg
+parthi87
+Principle 37666
+
+Int 87334
+
+
+EMC Toll free 1800 782 4362
+
+Link to reset the DWNG Password:
+
+http://intranet.hp.com/eds/amer/wg/dwtools/Pages/SupportContacts.aspx
+
+DWNG Support Number: 0001-800-287-8524
+
+		Important Web Links
+
+		HP Share point:    	http://teams8.sharepoint.hp.com/teams/sabre_storage/Lists/CR%20Assignments/AllItems.aspx
+		ECPM: 			http://ecpm.sea.eds.com/
+		SR  tool:		http://edssrtool.sea.eds.com/EDS/ReqLogon.asp
+		SR EMRO:		http://ermo.sea.eds.com/ERMOProd/SRLogon.asp?Mode=bad&page=%2FERMOProd%2FSRHome%2Easp
+		Sabre ON-Call:		https://eonrepository.iweb.eds.com/eon/EscDetail.aspx?id=6815	(Please dont make any changes unless advices)
+EON Help desk:
+
+1888 263 4337 Option 3 Then option 1
+
+EON PAGE PLANO HELPDESK 972-604-3812/866-284-8602 
+
+
+EON PAGE Auburn HELPDESK:248-276-5265/866-724-2527 
+
+HPES MRO desk (866-660-2476) 
+
+EDS Sabre help desk 00018772323075
+
+Sabre Pseudo ID: 1877 785 2155 - 
+
+1-248-464-6006 - old num
+
+SEA Labour tracking Ph:
+
+
+Enter sabre pseudo id without the "ed", just the number
+
+HP IT GLOBAL HELPDESK: 1888 263 4337 Option 3 Then option 1
+Embarq SAN  - 
+Jump Server - 207.37.101.32
+Jump Server Username - eccadmin
+Jump Server Password - Sunday77
+
+Embard Cisco Switch Password is 3st0rage 
+
+Ecc  Username : eccadmin and password : Sunday77
+
+Listed below are the details of the embarq setup. 
+DW group 
+ZUSC_SW_STORAGE_IN 
+Change manager group  -- EBQP_CSR 
+EMC Site ID : 3642842 
+USTSMSNEMSS005 - s/n: FOX111318P3 - Tile: D3.AM.105 
+USTSMSNEMSS004 - s/n: FOX111318TH - Tile: D3.E.105 
+EMC DMX3-SYS24-3D 
+Model 3830-36 
+SN#  HK190103047 
+System Name       USTLSMSS3047 
+Floor Location       MOD3 AL 97  ( D3.AL.97 ) 
+Site Support                     918 274 7833  |  CDCSiteSupport2@hp.com 
+Kyle Zumwalt [EMAIL ID - kyle.zumwalt@hp.com] would be the best one to address any SITE SUPPORT related queries for this account. 
+
+ 
+Jump Server - 207.169.79.209 W2k3 R2
+Mgmt Server - 10.200.130.17 VmWare W2k3 R2
+ssseccp04.global.ad.sabre.com
+ssseccp03.global.ad.sabre.com
+OLD PASSWORD:ugra688
+
+Defender password - Sabre123
+
+NAS 
+
+10.200.45.165  --> new NAS NS 960 (2) USTSSSNSBRE013.sabre.com
+http://10.201.255.132 -------> CDC 
+https://10.201.127.132/Login->TCC old NAS
+https://10.201.127.145-------->TCC new NAS (1)
+user name = nasadmin
+pasword = nasadmin
+
+CLARION
+172.29.44.220             (All clariion array )
+172.29.44.220 = spa 
+172.29.44.221 = spb
+user name = eccadmin
+pasword = emc54321
+
+172.29.44.178 - 007
+172.29.44.179 - 008
+
+ecchwp02 jumpserver
+
+Cisco 
+5St0rage11
+
+McData 
+3st0rage
+
+ed856534
+passion123
+
+9380156923
+9380156923
+
+http://www.scubeproductions.com/jakkuboys.html
+
+---------------------------------------------------------
+TOLLFREE FOR SABRE US CALL - 0008006103100
+--------------------------------------------------------------
+Sabre location codes:
+
+SCC - 13498794758923
+TCC - 98234987264876
+CDC - TUL-CDC
+Code for CX Arrays in TCC - USTLSCXSBRE001 /02
+--------------------------------------------------------------
+
+	
++

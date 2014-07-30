@@ -1,0 +1,213 @@
+Trunking:
+
+ustlssnsbre001	8/11
+ustlssnsbre001	8/13
+ustlssnsbre001	9/11
+ustlssnsbre001	9/13
+====================
+ustlssnsbre002	8/11
+ustlssnsbre002	8/13
+ustlssnsbre002	9/11
+ustlssnsbre002	9/13
+
+
+On ustlssnsbre001 & ustlssnsbre002:
+
+conf t
+interface 8/11
+switchport trunk mode on
+exit
+exit
+
+
+show interface 8/11
+
+conf t
+interface 8/13
+switchport trunk mode on
+exit
+exit
+
+
+show interface 8/13
+
+conf t
+interface 9/11
+switchport trunk mode on
+exit
+exit
+
+
+show interface 9/11
+
+
+conf t
+interface 9/13
+switchport trunk mode on
+exit
+exit
+
+
+show interface 9/13
+====================================================
+On ustsssnsbre005 & ustsssnsbre006:
+
+ustsssnsbre006 12/3	
+ustsssnsbre006 12/15	
+ustsssnsbre006 13/3	
+ustsssnsbre006 13/15
+====================
+ustsssnsbre005 12/3	
+ustsssnsbre005 12/15	
+ustsssnsbre005 13/3	
+ustsssnsbre005 13/15	
+
+conf t
+interface fc12/3
+switchport trunk mode on
+exit
+exit
+
+
+show interface fc12/3
+
+conf t
+interface fc12/15
+switchport trunk mode on
+exit
+exit
+
+
+show interface fc12/15
+
+conf t
+interface fc13/3
+switchport trunk mode on
+exit
+exit
+
+
+show interface fc13/3
+
+conf t
+interface fc13/15
+switchport trunk mode on
+exit
+exit
+
+
+show interface fc13/15
+
+
+
+
+
+#############################################################################
+
+
+Commands to get the output of the current Port Channel information on the switches.
+
+show port-channel summary
+
+show port-channel database
+
+show port-channel consistency detail
+
+show port-channel usage
+------------------------------------------------
+The port channel number will be picked from the output of the show port-channel usage command. The "x" below will be replaced with that command.
+The same number x will be used while creating a port channel and a port channel group.
+
+------------------------------------------------
+Create a port channel in ACTIVE mode.
+
+
+conf t
+
+interface port-channel x
+
+channel mode active
+
+exit
+exit
+
+------------------------------------------------
+
+Add ports to the Port Channel:
+
+On switch bre001 and bre002
+
+Note - Run the commands on bre001 and then run the corresponding commands on bre005. Same for bre002 and bre006.
+
+Because once added to the port channel, the ports will be disabled, and will need to be brought up manually on each side of the port channel.
+
+conf t
+interface fc8/11
+channel-group x
+exit
+exit
+ 
+
+conf t
+interface fc8/13
+channel-group x
+exit
+exit
+
+
+conf t
+interface fc9/11
+channel-group x
+exit
+exit
+ 
+
+conf t
+interface fc9/13
+channel-group x
+exit
+exit
+
+
+On switch bre005 and bre006:
+
+conf t
+interface fc12/3
+channel-group x
+exit
+exit
+
+
+conf t
+interface fc12/15
+channel-group x
+exit
+exit
+
+
+conf t
+interface fc13/3
+channel-group x
+exit
+exit
+
+
+conf t	
+interface fc13/15
+channel-group x
+exit
+exit
+
+------------------------------------------------
+Run the same commands that were exec'd at the beginning to ensure all the port channels look ok.
+
+show port-channel summary
+
+show port-channel database
+
+show port-channel consistency detail
+
+show port-channel usage
+
+------------------------------------------------
+

@@ -1,0 +1,8 @@
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @numbers = (1..100);
+my @tripled = map {$_ *3 @numbers;
+
+print "\@numbers = @numbers\n\@tripled=@tripled\n";

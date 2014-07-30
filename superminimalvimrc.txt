@@ -1,0 +1,61 @@
+Hi,
+
+Came to this thread while checking out some stuff I could pick for my .vimrc.
+
+Here's my superminimal vimrc. It works on Windows 7, Debian, CentOS etc.
+"Make it vim compatible. Not with VI.
+set nocompatible
+
+"Set Line Numbers
+set nu
+
+"Set Autoindent
+set autoindent
+
+"Dont beep on me.
+vim set noerrorbells
+
+"Just flash the screen (Visual Bell)
+set vb
+
+"Remember last 1000 commands.
+set history=1000
+
+"Set undo level to 1000
+set undolevels=1000
+
+"Make baskspace behave properly.
+set backspace=2
+set backspace=indent,eol,start
+
+"Set syntax related stuff
+syntax on
+filetype plugin indent on
+
+"Let me fiddle with a lot of open files with unsaved changes.
+"More details here - Vim 101: Set Hidden
+set hidden
+
+"Ignore case while searching.
+set ignorecase
+
+"Highlight as I type the words while searching.
+set incsearch
+"If I SEArch this way, then highlight SEArch, else highlight "search
+"without any regard for case.
+set smartcase
+
+"Make cursor jump to the matching bracket.
+set showmatch
+
+"When enabled, the ruler is displayed on the right side of the status line at the bottom of the window.
+set ruler
+set wildmenu
+set showmode
+set showcmd
+set laststatus=2
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+set encoding=utf-8
+set fileencoding=utf-8
+set termencoding=utf-8
+scriptencoding=utf-8
